@@ -10,7 +10,7 @@ on:
                 description: 'Offline Token'
                 required: true
             team_space:
-                description: 'Team Space'
+                description: 'Team Space Name'
                 required: true
             project:
                 description: 'Project'
@@ -19,14 +19,26 @@ on:
                 description: 'Branch'
                 required: true
             repository:
-                description: 'Repository'
+                description: 'Repository Link'
                 required: true
             file_path:
                 description: 'File Path'
                 required: true
             environment:
-                description: 'Environment'
-                required: true
+                description: 'API Test Environment'
+                required: false
+            variables:
+                description: 'Variables'
+                required: false
+            datasets:
+                description: 'Datasets'
+                required: false
+            labels:
+                description: 'Labels'
+                required: false
+            secrets_collection_name:
+                description: 'Secrets Collection Name'
+                required: false
 
 jobs:
 
@@ -45,3 +57,7 @@ jobs:
             repository: '${{ github.event.inputs.repository }}'
             filepath: '${{ github.event.inputs.file_path }}'
             environment: '${{ github.event.inputs.environment }}'
+            variables: '${{ github.event.inputs.variables }}'
+            datasets: '${{ github.event.inputs.datasets }}'
+            tags: '${{ github.event.inputs.labels }}'
+            secretsCollection: '${{ github.event.inputs.secrets_collection_name }}'
